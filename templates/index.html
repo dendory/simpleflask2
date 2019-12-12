@@ -1,0 +1,14 @@
+{% include 'top.html' %}
+
+<h2>Hello, {{ cfg.user }}!</h2>
+{% if cfg.user == "Guest" %}
+<p>Click on the button to begin:</p>
+<p><a class="btn btn-primary" href="/login" role="button">Go to the login page</a></p>
+{% else %}
+<p>You have now successfully logged in.</p>
+<p><a class="btn btn-primary" href="/login" role="button">Login as a different user</a></p>
+{% endif %}
+
+<p>The new feature will go here.</p>
+
+{% include 'bottom.html' %}

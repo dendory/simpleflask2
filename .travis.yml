@@ -1,0 +1,23 @@
+sudo: required
+language: python
+services:
+  - docker
+before_install:
+  - docker build -t dendory02/simpleflask .
+  - docker run -d -p 80:80 --name app dendory02/simpleflask
+  - docker ps -a
+script:
+  - curl -k http://localhost/
+after_script:
+  - docker rm -f app
+deploy:
+  provider: elasticbeanstalk
+  region: us-west-2
+  app: simpleflask
+  env: Simpleflask-env
+  bucket_name: elasticbeanstalk-us-west-2-310790002532
+  bucket_path: simpleflask
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY

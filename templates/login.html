@@ -1,0 +1,13 @@
+{% include 'top.html' %}
+
+<h4>Use this form to login:</h4>
+<form method="POST" action="/">
+	<div class="row">
+		<div class="col-md-6"><input type="text" class="form-control" name="id" placeholder="Username" required="true"></div>
+		<div class="col-md-6"><input type="password" class="form-control" name="pw" placeholder="Password" required="true"></div>
+	</div>
+	<br>
+	<input type="submit" class="btn btn-primary class-control" value="Submit">
+</form>
+
+{% include 'bottom.html' %}
